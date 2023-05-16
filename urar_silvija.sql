@@ -73,3 +73,13 @@ insert into sat (marka,vrsta,kvar,korisnik,id)
 values	('Casio','ručni/digitalni','kasni',1,null),
 		('Seiko','ručni/mehanički','žuri',1,null),
 		(null,'vekerica','ne zvoni',3,null);
+
+insert into zahvat (sat,serviser,opis)
+values	(1,666,'promjena baterije'),
+		(2,666,'čišćenje'),
+		(3,999,'navijanje')
+
+insert into servisni_list (korisnik,sat,serviser,id)
+values	(1,2,666,null),
+		(2,1,999,null),
+		(3,3,999,null);
