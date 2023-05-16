@@ -1,8 +1,11 @@
-# c:\xampp\mysql\bin\mysql -uroot < C:\Users\Mili\Documents\GitHub\EdunovaJP28\urar_silvija.sql
+# c:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 < C:\Users\Mili\Documents\GitHub\EdunovaJP28\urar_silvija.sql
 
+# kreiranje baze
 drop database if exists urar_silvija;
 create database urar_silvija;
 use urar_silvija;
+
+# kreiranje tablica
 create table korisnik(
 	ime varchar(50),
 	prezime varchar(50),
@@ -26,7 +29,8 @@ create table serviser(
 
 create table zahvat(
 	sat int not null,
-	serviser int not null
+	serviser int not null,
+	opis varchar not null
 );
 
 create table servisni_list(
@@ -36,6 +40,7 @@ create table servisni_list(
 	id int not null primary key auto_increment
 );
 
+# kreiranje veza
 alter table zahvat add foreign key (sat)
 references sat (id);
 
@@ -53,3 +58,18 @@ references sat (id);
 
 alter table servisni_list add foreign key (serviser)
 references serviser (sifra);
+
+# unos podataka
+insert into korisnik (ime,prezime,kontakt,obavijest,id)
+values  ('Pero','Perić','pero@net.hr',null,null),
+		('Marko','Marić','0912345678',true,null),
+		('Ivan','Ivić','031123456',false,null);
+
+insert into serviser (ime,sifra)
+values  ('XXX',666),
+		('YYY',999);
+
+insert into sat (marka,vrsta,kvar,korisnik,id)
+values	('Casio','ručni/digitalni','kasni',1,null),
+		('Seiko','ručni/mehanički','žuri',1,null),
+		(null,'vekerica','ne zvoni',3,null);
