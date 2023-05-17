@@ -30,7 +30,7 @@ create table serviser(
 create table zahvat(
 	sat int not null,
 	serviser int not null,
-	opis varchar not null
+	opis varchar(50) not null
 );
 
 create table servisni_list(
@@ -77,7 +77,7 @@ values	('Casio','ručni/digitalni','kasni',1,null),
 insert into zahvat (sat,serviser,opis)
 values	(1,666,'promjena baterije'),
 		(2,666,'čišćenje'),
-		(3,999,'navijanje')
+		(3,999,'navijanje');
 
 insert into servisni_list (korisnik,sat,serviser,id)
 values	(1,2,666,null),
