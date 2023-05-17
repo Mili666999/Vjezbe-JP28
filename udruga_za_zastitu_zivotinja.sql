@@ -35,9 +35,9 @@ references osoba (sifra);
 
 # dodavanje podataka u bazu
 insert into osoba (sifra,ime,prezime,oib)
-values (null,'Pero','Perić',123456789),
-		(null,'Marko','Marić',456789123),
-		(null,'Ivan','Ivić',789123456);
+values (null,'Pero','Perić','123456789'),
+		(null,'Marko','Marić','456789123'),
+		(null,'Ivan','Ivić','789123456');
 
 insert into zivotinja (sifra,ime,vrsta,osoba)
 values (null,'Medo','pas',1),
