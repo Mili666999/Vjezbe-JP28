@@ -10,7 +10,8 @@ create table osoba(
     sifra int not null primary key auto_increment,
     ime varchar(50) not null,
     prezime varchar(50),
-    oib varchar(11)
+    oib varchar(11),
+    zivotinja int
 );
 
 create table zivotinja(
@@ -23,7 +24,7 @@ create table zivotinja(
 create table prostor(
     sifra int not null primary key auto_increment,
     broj int not null,
-    zivotinja int
+    zivotinja int not null
 );
 
 # kreiranje veza
@@ -35,9 +36,9 @@ references osoba (sifra);
 
 # dodavanje podataka u bazu
 insert into osoba (sifra,ime,prezime,oib)
-values (null,'Pero','Perić',123456789),
-		(null,'Marko','Marić',456789123),
-		(null,'Ivan','Ivić',789123456);
+values (null,'Pero','Perić','123456789'),
+		(null,'Marko','Marić','456789123'),
+		(null,'Ivan','Ivić','789123456');
 
 insert into zivotinja (sifra,ime,vrsta,osoba)
 values (null,'Medo','pas',1),
