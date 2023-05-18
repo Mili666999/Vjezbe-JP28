@@ -18,7 +18,7 @@ create table sat(
 	marka varchar(50),
 	vrsta varchar(50),
 	kvar varchar(50) not null,
-	korisnik int not null,
+	korisnik int,
 	id int not null primary key auto_increment
 );
 
@@ -29,13 +29,13 @@ create table serviser(
 
 create table zahvat(
 	sat int not null,
-	serviser int not null,
+	serviser int,
 	opis varchar(50) not null
 );
 
 create table servisni_list(
 	korisnik int not null,
-	sat int not null,
+	sat int,
 	serviser int not null,
 	id int not null primary key auto_increment
 );
