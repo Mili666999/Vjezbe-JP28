@@ -15,20 +15,20 @@ create table svecenik(
 create table posao(
     sifra int not null primary key auto_increment,
     opisPosla varchar(150),
-    zadatak int not null
+    svecenik_posao int not null
 );
 
-create table zadatak(
+create table svecenik_posao(
     svecenik int,
     posao int
 );
 
 # kreiranje veza
 
-alter table zadatak add foreign key (svecenik)
+alter table svecenik_posao add foreign key (svecenik)
 references svecenik (sifra);
 
-alter table zadatak add foreign key (posao)
+alter table svecenik_posao add foreign key (posao)
 references posao (sifra);
 
 alter table svecenik add foreign key (nadredeni)
@@ -38,10 +38,13 @@ references svecenik (sifra);
 # punjenje podacima
 
 insert into svecenik (sifra,ime)
-    values (null,'fra Duje');
+    values  (null,'fra Duje'),
+            (null,'fra Šime');
 
-insert into posao (sifra,opisPosla,zadatak)
-    values (null,'Košnja trave',1);
+insert into posao (sifra,opisPosla,svecenik_posao)
+    values (null,'Košnja trave',1),
+           (null,'Sadnja baŠČe',2);
 
-insert into zadatak (svecenik,posao)
-    values (1,1);
+insert into svecenik_posao (svecenik,posao)
+    values (1,1),
+           (2,1);
