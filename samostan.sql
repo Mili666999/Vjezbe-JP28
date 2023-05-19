@@ -8,7 +8,8 @@ use samostan;
 # kreiranje tablica
 create table svecenik(
     sifra int not null primary key auto_increment,
-    ime varchar(50) not null
+    ime varchar(50) not null,
+    nadredeni int
 );    
 
 create table posao(
@@ -22,12 +23,6 @@ create table zadatak(
     posao int
 );
 
-create table nadredeni_svecenik(
-    sifra int not null primary key auto_increment,
-    ime varchar(50),
-    svecenik int not null
-);
-
 # kreiranje veza
 
 alter table zadatak add foreign key (svecenik)
@@ -36,16 +31,14 @@ references svecenik (sifra);
 alter table zadatak add foreign key (posao)
 references posao (sifra);
 
-alter table nadredeni_svecenik add foreign key (svecenik)
+alter table svecenik add foreign key (nadredeni)
 references svecenik (sifra);
+
 
 # punjenje podacima
 
 insert into svecenik (sifra,ime)
     values (null,'fra Duje');
-
-insert into nadredeni_svecenik (sifra,ime,svecenik)
-    values (null,'fra Frane',1);
 
 insert into posao (sifra,opisPosla,zadatak)
     values (null,'Košnja trave',1);
