@@ -19,8 +19,8 @@ create table posao(
 );
 
 create table svecenik_posao(
-    svecenik int,
-    posao int
+    svecenik int not null,
+    posao int not null
 );
 
 # kreiranje veza
@@ -43,8 +43,8 @@ insert into svecenik (sifra,ime)
 
 insert into posao (sifra,opisPosla,svecenik_posao)
     values (null,'Košnja trave',1),
-           (null,'Sadnja baŠČe',2);
+           (null,'Sadnja baŠČe',1);
 
 insert into svecenik_posao (svecenik,posao)
     values (1,1),
-           (2,1);
+           (1,1);
